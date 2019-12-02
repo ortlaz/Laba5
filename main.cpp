@@ -6,6 +6,9 @@ using namespace std;
 
 int main()
 {
+    //TODO:сделать меню
+
+
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
     Hash_Table<string,string> HT;
