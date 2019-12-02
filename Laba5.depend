@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1575325998 source:c:\users\lenovo\documents\university\cèÀÎÄ\laba5\main.cpp
+	<iostream>
+	<windows.h>
+	<Hash_Table.h>
+
+1575311880 source:c:\users\lenovo\documents\university\cèÀÎÄ\laba5\src\hash_table.cpp
+	"Hash_Table.h"
+
+1575326241 c:\users\lenovo\documents\university\cèÀÎÄ\laba5\include\hash_table.h
+	<iostream>
+	<string>
+	<ctype.h>
+
