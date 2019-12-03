@@ -195,7 +195,7 @@ void Hash_Table<tKey,tValue>::del(tKey elem){
 
         free(pt);
 
-        table[index]->next->next =0;
+        table[index]->next =0;
 
     }
 
