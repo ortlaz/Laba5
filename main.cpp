@@ -33,6 +33,13 @@ int main()
             }
             case 2:{
                 HT.output();
+
+                /*
+                cout<<"ĞÅÕÅØÈĞÎÂÀÍÈÅ:"<<endl;
+                HT.reHash();
+                HT.output();
+                */
+
                 system("pause");
                 break;
             }
@@ -49,7 +56,6 @@ int main()
                 break;
             }
             case 5:{
-
                 string el;
                 cout<<"İëåìåíò íà óäàëåíèå:";
                 cin>>el;
