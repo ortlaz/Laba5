@@ -21,7 +21,7 @@ class Hash_Table{
         Key code;
    };
 
-   int capasity = 57;
+   int capasity = 3;
    int Size = 0;
 
    Univer<tKey,tValue> **table;
@@ -99,12 +99,13 @@ void Hash_Table<tKey,tValue>::push(tValue name, tKey code){
     //создание нового элемента
     Univer<tKey,tValue>* univ = new Univer<tKey,tValue>(name, code);
 
+    Size ++;
     //элемент хеш-таблицы
     Univer<tKey,tValue>* place = table[index];
 
     if(!place){
         table[index] = univ;
-        Size ++;
+
         table[index]->next = nullptr;
         return;
     }
