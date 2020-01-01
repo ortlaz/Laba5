@@ -6,8 +6,8 @@ using namespace std;
 
 int main()
 {
-    SetConsoleCP(1251);
-    SetConsoleOutputCP(1251);
+    SetConsoleCP(866);
+    SetConsoleOutputCP(866);
     Hash_Table<string,string> HT;
 
      int var;
@@ -15,16 +15,16 @@ int main()
     while (var){
         system("cls");
 
-        cout<<"1.Âñòàâêà ýëåìåíòà.\n2.Âûâîä òàáëèöû.\n3.Ñïèñîê èíäåêñîâ.\n4.Ïîèñê ýëåìåíòà ïî êëþ÷ó.\n5.Óäàëåíèå ýëåìåíòà ïî êëþ÷ó.\n0.Âûõîä\n";
-        cout<<"Âûáåðèòå äåéñòâèå:";
+        cout<<"1.Ð’ÑÑ‚Ð°Ð²ÐºÐ° ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð°.\n2.Ð’Ñ‹Ð²Ð¾Ð´ Ñ‚Ð°Ð±Ð»Ð¸Ñ†Ñ‹.\n3.Ð¡Ð¿Ð¸ÑÐ¾Ðº Ð¸Ð½Ð´ÐµÐºÑÐ¾Ð².\n4.ÐŸÐ¾Ð¸ÑÐº ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð° Ð¿Ð¾ ÐºÐ»ÑŽÑ‡Ñƒ.\n5.Ð£Ð´Ð°Ð»ÐµÐ½Ð¸Ðµ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð° Ð¿Ð¾ ÐºÐ»ÑŽÑ‡Ñƒ.\n0.Ð’Ñ‹Ñ…Ð¾Ð´\n";
+        cout<<"Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ðµ:";
         cin>>var;
 
         switch(var){
             case 1:{
                 string code,name;
-                cout<<"Ââåäèòå êîä ñïåöèàëüíîñòè:";
+                cout<<"Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ¾Ð´ ÑÐ¿ÐµÑ†Ð¸Ð°Ð»ÑŒÐ½Ð¾ÑÑ‚Ð¸:";
                 cin>>code;
-                cout<<"\nÂâåäèòå íàçâàíèå ÂÓÇà:";
+                cout<<"\nÐ’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð½Ð°Ð·Ð²Ð°Ð½Ð¸Ðµ Ð’Ð£Ð—Ð°:";
                 cin>>name;
                 cout<<endl;
                 HT.push(name,code);
@@ -35,7 +35,7 @@ int main()
                 HT.output();
 
                 /*
-                cout<<"ÐÅÕÅØÈÐÎÂÀÍÈÅ:"<<endl;
+                cout<<"Ð Ð•Ð¥Ð•Ð¨Ð˜Ð ÐžÐ’ÐÐÐ˜Ð•:"<<endl;
                 HT.reHash();
                 HT.output();
                 */
@@ -44,7 +44,7 @@ int main()
                 break;
             }
             case 3:{
-                cout<<"\nÑïèñîê èíäåêñîâ\n";
+                cout<<"\nÐ¡Ð¿Ð¸ÑÐ¾Ðº Ð¸Ð½Ð´ÐµÐºÑÐ¾Ð²\n";
                 HT.Indexes();
                 cout<<endl;
                 system("pause");
@@ -57,7 +57,7 @@ int main()
             }
             case 5:{
                 string el;
-                cout<<"Ýëåìåíò íà óäàëåíèå:";
+                cout<<"Ð­Ð»ÐµÐ¼ÐµÐ½Ñ‚ Ð½Ð° ÑƒÐ´Ð°Ð»ÐµÐ½Ð¸Ðµ:";
                 cin>>el;
                 HT.del(el);
                 system("pause");
@@ -69,7 +69,7 @@ int main()
                 break;
             }
             default:{
-                cout<<"Âûáåðèòå îïåðàöèþ èç ñïèñêà!\n";
+                cout<<"Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ð¾Ð¿ÐµÑ€Ð°Ñ†Ð¸ÑŽ Ð¸Ð· ÑÐ¿Ð¸ÑÐºÐ°!\n";
                 system("pause");
                 break;
             }

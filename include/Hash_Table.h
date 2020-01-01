@@ -26,10 +26,10 @@ class Hash_Table{
 
    Univer<tKey,tValue> **table;
 
-   //хеш функция
+   //С…РµС€ С„СѓРЅРєС†РёСЏ
     int hashFunc(tKey str){
 
-    //сумма чисел в коде специальности
+    //СЃСѓРјРјР° С‡РёСЃРµР» РІ РєРѕРґРµ СЃРїРµС†РёР°Р»СЊРЅРѕСЃС‚Рё
     int asc = 0;
     int elem =0;
     for (int i=0; i<str.length();i++){
@@ -44,17 +44,17 @@ class Hash_Table{
 
 public:
 
-    //иницилизация
+    //РёРЅРёС†РёР»РёР·Р°С†РёСЏ
     Hash_Table(){
 
-       table = new Univer<tKey,tValue>*[capasity]; //выделение памяти
+       table = new Univer<tKey,tValue>*[capasity]; //РІС‹РґРµР»РµРЅРёРµ РїР°РјСЏС‚Рё
 
         for (int i=0; i<capasity; i++){
             table[i] = NULL;
         }
     }
 
-    //удаление
+    //СѓРґР°Р»РµРЅРёРµ
     ~Hash_Table(){
 
         for(int i=0;i<capasity;i++){
@@ -63,44 +63,44 @@ public:
         delete [] table;
     }
 
-    //вставка
+    //РІСЃС‚Р°РІРєР°
     void push(tValue name, tKey code);
 
-    //поиск по коду специализации
+    //РїРѕРёСЃРє РїРѕ РєРѕРґСѓ СЃРїРµС†РёР°Р»РёР·Р°С†РёРё
     void findEl();
 
-    //удаляет по ключу
+    //СѓРґР°Р»СЏРµС‚ РїРѕ РєР»СЋС‡Сѓ
     void del(tKey elem);
 
-    //вывод
+    //РІС‹РІРѕРґ
     void output();
 
-    //вывод индексов
+    //РІС‹РІРѕРґ РёРЅРґРµРєСЃРѕРІ
     void Indexes();
 
-    //рехеширование
+    //СЂРµС…РµС€РёСЂРѕРІР°РЅРёРµ
     void reHash();
 
 };
 
-//ВСТАВКА
+//Р’РЎРўРђР’РљРђ
 template<typename tKey, typename tValue>
 void Hash_Table<tKey,tValue>::push(tValue name, tKey code){
 
-    //проверка на необходимость рехеширования
+    //РїСЂРѕРІРµСЂРєР° РЅР° РЅРµРѕР±С…РѕРґРёРјРѕСЃС‚СЊ СЂРµС…РµС€РёСЂРѕРІР°РЅРёСЏ
     if(Size && double(Size)/capasity > 0.75){
-        cout<<"Требуется рехеширование!"<<endl;
+        cout<<"РўСЂРµР±СѓРµС‚СЃСЏ СЂРµС…РµС€РёСЂРѕРІР°РЅРёРµ!"<<endl;
         this->reHash();
     }
 
-    //получение хеш кода
+    //РїРѕР»СѓС‡РµРЅРёРµ С…РµС€ РєРѕРґР°
     int index = hashFunc(code);
 
-    //создание нового элемента
+    //СЃРѕР·РґР°РЅРёРµ РЅРѕРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р°
     Univer<tKey,tValue>* univ = new Univer<tKey,tValue>(name, code);
 
     Size ++;
-    //элемент хеш-таблицы
+    //СЌР»РµРјРµРЅС‚ С…РµС€-С‚Р°Р±Р»РёС†С‹
     Univer<tKey,tValue>* place = table[index];
 
     if(!place){
@@ -117,7 +117,7 @@ void Hash_Table<tKey,tValue>::push(tValue name, tKey code){
 
 }
 
-//ВЫВОД
+//Р’Р«Р’РћР”
 template<typename tKey, typename tValue>
 void Hash_Table<tKey,tValue>::output(){
     Univer<tKey,tValue>* ptr;
@@ -135,18 +135,18 @@ void Hash_Table<tKey,tValue>::output(){
     }
 }
 
-//ПОИСК по ключу
+//РџРћРРЎРљ РїРѕ РєР»СЋС‡Сѓ
 template<typename tKey, typename tValue>
 void Hash_Table<tKey,tValue>::findEl(){
 
     Univer<tKey,tValue>* ptr;
     string num;
 
-    cout<<"\nВведите код специальности:\n";
+    cout<<"\nР’РІРµРґРёС‚Рµ РєРѕРґ СЃРїРµС†РёР°Р»СЊРЅРѕСЃС‚Рё:\n";
     cin>>num;
 
     int index = hashFunc(num);
-    ptr=table[index]; //указатель на текущий элемент
+    ptr=table[index]; //СѓРєР°Р·Р°С‚РµР»СЊ РЅР° С‚РµРєСѓС‰РёР№ СЌР»РµРјРµРЅС‚
 
     if(ptr){
         while(ptr && (ptr->code != num) ){
@@ -155,7 +155,7 @@ void Hash_Table<tKey,tValue>::findEl(){
         }
 
         if(ptr){
-          cout<<"ВУЗ:"<<ptr->name<<endl;
+          cout<<"Р’РЈР—:"<<ptr->name<<endl;
         } else{
             cout<<"Element not found\n";
             return;
@@ -166,7 +166,7 @@ void Hash_Table<tKey,tValue>::findEl(){
     }
 }
 
-//УДАЛЕНИЕ
+//РЈР”РђР›Р•РќРР•
 template<typename tKey, typename tValue>
 void Hash_Table<tKey,tValue>::del(tKey elem){
 
@@ -180,7 +180,7 @@ void Hash_Table<tKey,tValue>::del(tKey elem){
         pt=pt->next;
     }
 
-    //элемент в начале
+    //СЌР»РµРјРµРЅС‚ РІ РЅР°С‡Р°Р»Рµ
     if(pt && pt1==pt){
 
         pt1=pt->next;
@@ -192,23 +192,23 @@ void Hash_Table<tKey,tValue>::del(tKey elem){
 
     }
 
-    //элемент не найден
+    //СЌР»РµРјРµРЅС‚ РЅРµ РЅР°Р№РґРµРЅ
     if(!pt){
         cout<<"Error\n";
         return;
     }
 
-    //элемент в конце
+    //СЌР»РµРјРµРЅС‚ РІ РєРѕРЅС†Рµ
     if(!pt->next){
 
         Univer<tValue,tKey>* temp2 = pt1;
 
-        //поиск указателя на предыдущий элемент
+        //РїРѕРёСЃРє СѓРєР°Р·Р°С‚РµР»СЏ РЅР° РїСЂРµРґС‹РґСѓС‰РёР№ СЌР»РµРјРµРЅС‚
         while(temp2 -> next && temp2->next !=pt){
             temp2=temp2->next;
         }
 
-        table[index] = pt1; //указатель на предыдущий элемент
+        table[index] = pt1; //СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РїСЂРµРґС‹РґСѓС‰РёР№ СЌР»РµРјРµРЅС‚
 
         free(pt);
         Size--;
@@ -216,7 +216,7 @@ void Hash_Table<tKey,tValue>::del(tKey elem){
 
     }
 
-    //элемент в середине
+    //СЌР»РµРјРµРЅС‚ РІ СЃРµСЂРµРґРёРЅРµ
     else{
 
         Univer<tValue,tKey>* temp1 = table[index];
@@ -232,7 +232,7 @@ void Hash_Table<tKey,tValue>::del(tKey elem){
     }
 }
 
-//вывод списка индексов
+//РІС‹РІРѕРґ СЃРїРёСЃРєР° РёРЅРґРµРєСЃРѕРІ
 template<typename tKey, typename tValue>
 void Hash_Table<tKey,tValue>::Indexes(){
 
@@ -250,16 +250,16 @@ void Hash_Table<tKey,tValue>::Indexes(){
     }
 }
 
-//рехеширование
+//СЂРµС…РµС€РёСЂРѕРІР°РЅРёРµ
 template<typename tKey, typename tValue>
 void Hash_Table<tKey,tValue>::reHash(){
 
-     //создание новой таблицы с capasity*2
-     Univer<tKey,tValue> **new_table;    //новая таблица
+     //СЃРѕР·РґР°РЅРёРµ РЅРѕРІРѕР№ С‚Р°Р±Р»РёС†С‹ СЃ capasity*2
+     Univer<tKey,tValue> **new_table;    //РЅРѕРІР°СЏ С‚Р°Р±Р»РёС†Р°
 
-     new_table = new Univer<tKey,tValue>*[capasity*2]; //выделение памяти
+     new_table = new Univer<tKey,tValue>*[capasity*2]; //РІС‹РґРµР»РµРЅРёРµ РїР°РјСЏС‚Рё
 
-     //иницилизация
+     //РёРЅРёС†РёР»РёР·Р°С†РёСЏ
      for (int i=0; i<capasity*2; i++){
         new_table[i] = NULL;
      }
@@ -268,9 +268,9 @@ void Hash_Table<tKey,tValue>::reHash(){
      tKey code;
      tValue name;
 
-    capasity *=2; //новая ёмкость
+    capasity *=2; //РЅРѕРІР°СЏ С‘РјРєРѕСЃС‚СЊ
 
-    //перестановка элементов из старой таблицы в новую. применяя хеш функцию с новым capasity
+    //РїРµСЂРµСЃС‚Р°РЅРѕРІРєР° СЌР»РµРјРµРЅС‚РѕРІ РёР· СЃС‚Р°СЂРѕР№ С‚Р°Р±Р»РёС†С‹ РІ РЅРѕРІСѓСЋ. РїСЂРёРјРµРЅСЏСЏ С…РµС€ С„СѓРЅРєС†РёСЋ СЃ РЅРѕРІС‹Рј capasity
     for (int i=0; i<capasity/2; i++){
 
         while(table[i]){
@@ -278,12 +278,12 @@ void Hash_Table<tKey,tValue>::reHash(){
             name = table[i]->name;
             code = table[i]->code;
 
-            index = hashFunc(code); //хеш функция
+            index = hashFunc(code); //С…РµС€ С„СѓРЅРєС†РёСЏ
 
-            //создание нового элемента
+            //СЃРѕР·РґР°РЅРёРµ РЅРѕРІРѕРіРѕ СЌР»РµРјРµРЅС‚Р°
             Univer<tKey,tValue>* univ = new Univer<tKey,tValue>(name, code);
 
-            //элемент хеш-таблицы
+            //СЌР»РµРјРµРЅС‚ С…РµС€-С‚Р°Р±Р»РёС†С‹
             Univer<tKey,tValue>* place = new_table[index];
 
             if(!place){
@@ -301,7 +301,7 @@ void Hash_Table<tKey,tValue>::reHash(){
         }
     }
 
-    //удаление старой таблицы
+    //СѓРґР°Р»РµРЅРёРµ СЃС‚Р°СЂРѕР№ С‚Р°Р±Р»РёС†С‹
     Univer<tKey,tValue> **temp = nullptr;
 
     temp = table;
